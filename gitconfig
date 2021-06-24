@@ -1,0 +1,25 @@
+[user]
+	name = Drake Morin
+	email = drake.morin@shopify.com
+[credential]
+	helper = 
+	helper = store --file /opt/dev/var/private/git_credential_store
+[core]
+	commitGraph = true
+[diff]
+	algorithm = patience
+[gc]
+	writeCommitGraph = true
+[protocol]
+	version = 2
+[url "https://github.com/Shopify/"]
+	insteadOf = git@github.com:Shopify/
+	insteadOf = git@github.com:shopify/
+	insteadOf = ssh://git@github.com/Shopify/
+	insteadOf = ssh://git@github.com/shopify/
+[alias]
+	ci = commit
+	unstage = reset --
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[pull]
+	ff = only
