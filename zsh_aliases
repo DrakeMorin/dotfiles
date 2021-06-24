@@ -1,0 +1,4 @@
+alias gs="git status"
+alias gd="git diff"
+alias gch="git checkout"
+alias gres1="git reset --soft HEAD~1"
