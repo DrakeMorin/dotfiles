@@ -6,6 +6,7 @@
 	helper = store --file /opt/dev/var/private/git_credential_store
 [core]
 	commitGraph = true
+	excludesfile = ~/.gitignore_global
 [diff]
 	algorithm = patience
 [gc]
@@ -21,5 +22,11 @@
 	ci = commit
 	unstage = reset --
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	st = status -sb
+	save = commit -a -m "Save"
+	update-submodules = submodule update --init --recursive
+	upgrade-submodules = submodule update --init --remote
 [pull]
 	ff = only
+[init]
+	defaultBranch = main

@@ -1,10 +1,20 @@
-- clean: ['~']
+- clean: ["~"]
 
 - link:
     ~/.gitconfig: gitconfig
     ~/.ssh/config:
-        path: ssh/config
-        create: true
+      path: ssh/config
+      create: true
     ~/.zshrc: zshrc
+    ~/.gitignore_global: gitignore_global
 
-
+- shell:
+    - git submodule sync --recursive
+    # the following have to run after linking ~/.gitconfig
+    - git update-submodules
+    # setup oh-my-zsh and desired plugins
+    - sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    # Clone Powerlevel 10K theme into oh-my-zsh
+    - git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+    # Clone zsh-syntax-highlighting into oh-my-zsh
+    - git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
