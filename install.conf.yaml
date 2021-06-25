@@ -1,6 +1,7 @@
 - clean: ["~"]
 
 - link:
+    ~/.dotfiles: ""
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
     ~/.ssh/config:
@@ -9,6 +10,7 @@
     ~/antigen: ~
     ~/.zshrc: zshrc
     ~/.zsh_aliases: zsh_aliases
+    ~/.spin_commands: spin_commands
 
 - shell:
     - git submodule sync --recursive

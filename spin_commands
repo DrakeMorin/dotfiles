@@ -1,0 +1,27 @@
+# Spin functions from Ed
+function spin_poc_repo {
+  spin shell $1 -- "set -x && stop && cd /src/github.com/shopify/$1 && source .spin/bin/env && source /etc/profile && git checkout -- . && git checkout poc_org_admin_in_web && update && start"
+}
+
+function spin_setup_poc {
+        set -x
+        spin_poc_repo business-platform \
+                && spin_poc_repo shopify \
+                && spin_poc_repo web
+}
+
+function spin_log() {
+  kubectl logs -f $1.$(spin info fqdn | cut -d. -f2-) --namespace $(spin info fqdn | cut -d. -f3) --context "spin-us-central1-1" spin-host
+}
+
+function spin_db { # Example usage: spin_db reponame database_name
+  open "mysql://root@$1.$(spin info fqdn | cut -d. -f2-)/$2" -a "Sequel Ace"
+}
+
+function spin_bp_db {
+  spin_db business-platform business_platform_development
+}
+
+function spin_identity_db {
+  spin_db identity identity_development
+}
