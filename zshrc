@@ -30,7 +30,12 @@ POWERLEVEL9K_STATUS_OK=false
 POWERLEVEL9K_STATUS_VERBOSE=false
 
 antigen bundle git
+antigen bundle gitignore
+antigen bundle command-not-found
+antigen bundle osx
 antigen bundle ruby
+antigen bundle rails
+antigen bundle thefuck
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Tells antigen we're done with our configuration
