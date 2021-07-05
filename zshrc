@@ -10,7 +10,7 @@ antigen use oh-my-zsh
 antigen theme romkatv/powerlevel10k
 
 # Add newline to below to have newline before prompt
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host status dir vcs newline)
 
 # No right prompt
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
