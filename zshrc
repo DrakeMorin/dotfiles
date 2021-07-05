@@ -29,6 +29,7 @@ POWERLEVEL9K_STATUS_OK=false
 # Only show an X for non-zero exit codes
 POWERLEVEL9K_STATUS_VERBOSE=false
 
+# Load bundles from default repo (oh-my-zsh)
 antigen bundle git
 antigen bundle gitignore
 antigen bundle command-not-found
@@ -36,6 +37,8 @@ antigen bundle osx
 antigen bundle ruby
 antigen bundle rails
 antigen bundle thefuck
+
+# Load bundles from external repos
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Tells antigen we're done with our configuration
