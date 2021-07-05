@@ -10,7 +10,19 @@ antigen use oh-my-zsh
 antigen theme romkatv/powerlevel10k
 
 # Add newline to below to have newline before prompt
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host status dir vcs newline)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir vcs newline prompt_char)
+
+# Context format when running with privileges: hostname.
+# To show user@hostname, use '%n@%m'
+typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE='%m'
+# Context format when in SSH without privileges: hostname.
+typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_TEMPLATE='%m'
+# Default context format (no privileges, no SSH): hostname.
+typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%m'
+
+# Don't show context unless running with privileges or in SSH.
+# Tip: Remove the next line to always show context.
+typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_{CONTENT,VISUAL_IDENTIFIER}_EXPANSION=
 
 # No right prompt
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
