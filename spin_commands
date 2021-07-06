@@ -15,7 +15,7 @@ function spin_log() {
 }
 
 function spin_db { # Example usage: spin_db reponame database_name
-  open "mysql://root@$1.$(spin info fqdn | cut -d. -f2-)/$2" -a "Sequel Ace"
+  open "mysql://root@$1.$(spin info fqdn | cut -d. -f2-)/$2"
 }
 
 function spin_bp_db {
