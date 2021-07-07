@@ -47,11 +47,24 @@ typeset -g POWERLEVEL9K_EMPTY_LINE_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=
 ##################################[ context: user@hostname ]##################################
 # Context format when running with privileges: hostname.
 # To show user@hostname, use '%n@%m'
-typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE='%m'
+# Context color when running with privileges.
+typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=1
+typeset -g POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND=0
+# Context color in SSH (possibly with or) without privileges.
+typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_FOREGROUND=3
+typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_BACKGROUND=0
+# Default context color (no privileges, no SSH).
+typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND=3
+typeset -g POWERLEVEL9K_CONTEXT_BACKGROUND=0
+
+# Context format when not in SSH running with privileges
+typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE='%n'
 # Context format when in SSH without privileges: hostname.
-typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_TEMPLATE='%m'
-# Default context format (no privileges, no SSH): hostname.
-typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%m'
+typeset -g POWERLEVEL9K_CONTEXT_REMOTE_TEMPLATE='%m'
+# Context format when in SSH with privileges: user@hostname.
+typeset -g POWERLEVEL9K_CONTEXT_REMOTE_SUDO_TEMPLATE='%n@%m'
+# Default context format (no privileges, no SSH): user.
+typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n'
 # Don't show context unless running with privileges or in SSH.
 # Tip: Remove the next line to always show context.
 typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_{CONTENT,VISUAL_IDENTIFIER}_EXPANSION=
@@ -161,9 +174,10 @@ function my_git_formatter() {
     if [[ -n $VCS_STATUS_LOCAL_BRANCH ]]; then
         local branch=${(V)VCS_STATUS_LOCAL_BRANCH}
         # If local branch name is at most 32 characters long, show it in full.
-        # Otherwise show the first 12 … the last 12.
+        # Current: Otherwise show the first 32 characters and nothing at the end
+        # Old version: Otherwise show the first 12 … the last 12. branch[13,-13]
         # Tip: To always show local branch name in full without truncation, delete the next line.
-        (( $#branch > 32 )) && branch[13,-13]="…"  # <-- this line
+        (( $#branch > 32 )) && branch[32,-1]="…"  # <-- this line
         res+="${clean}${(g::)POWERLEVEL9K_VCS_BRANCH_ICON}${branch//\%/%%}"
     fi
 
@@ -237,6 +251,12 @@ typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${$((my_git_formatter()))+${my_gi
 typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED,CONFLICTED,COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=-1
 # Show status of repositories of these types.
 typeset -g POWERLEVEL9K_VCS_BACKENDS=(git)
+# How many characters to show
+# typeset -g POWERLEVEL9K_VCS_SHORTEN_LENGTH=12
+# The minimum branch length. Branch names will be truncated if length is greater than this
+# typeset -g POWERLEVEL9K_VCS_SHORTEN_MIN_LENGTH=16
+# typeset -g POWERLEVEL9K_VCS_SHORTEN_STRATEGY="truncate_from_right"
+# typeset -g POWERLEVEL9K_VCS_SHORTEN_DELIMITER=".."
 
 
  ####################################[ time: current time ]####################################
