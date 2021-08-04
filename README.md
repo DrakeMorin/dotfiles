@@ -1,0 +1,1 @@
+These dotfiles require a Powerline font. I recommend Meslo Nerd Font patched for Powerlevel10k which can be found online.
