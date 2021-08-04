@@ -15,6 +15,7 @@
     ~/.zshrc: zshrc
     ~/.zsh_aliases: zsh_aliases
     ~/.spin_commands: spin_commands
+    ~/.zsh_personal: zsh_personal
 
 - shell:
     - git submodule sync --recursive

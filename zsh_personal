@@ -1,0 +1,6 @@
+alias uwssh="ssh -Y dwhall@linux.student.cs.uwaterloo.ca"
+
+# CS 350 mounting aliases
+alias uw='sshpass -f ~/.ssh/uw-pass ssh dwhall@ubuntu1604-XXX.student.cs.uwaterloo.ca'
+alias cs350='sshfs -o password_stdin USER@ubuntu1604-XXX.student.cs.uwaterloo.ca:/uX/USER/cs350-os161/os161-1.99 ~/cs350 <<< "<YOUR PASSWORD HERE>"'
+alias cs350done='fusermount -u ~/cs350'

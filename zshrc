@@ -292,6 +292,7 @@ antigen apply
 
 alias zshconfig="vim ~/.zshrc"
 source ~/.zsh_aliases
+source ~/.zsh_personal
 
 source ~/.spin_commands
 
