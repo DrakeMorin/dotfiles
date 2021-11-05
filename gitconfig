@@ -1,9 +1,6 @@
 [user]
 	name = Drake Morin
 	email = drake.morin@shopify.com
-[credential]
-	helper = 
-	helper = store --file /opt/dev/var/private/git_credential_store
 [core]
 	commitGraph = true
 	excludesfile = ~/.gitignore_global
