@@ -282,7 +282,7 @@ antigen bundle command-not-found
 antigen bundle osx
 antigen bundle ruby
 antigen bundle rails
-antigen bundle thefuck
+# antigen bundle thefuck
 
 # Load bundles from external repos
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -302,6 +302,10 @@ export PATH="/Users/drakemorin/Library/Python/3.7/bin:$PATH"
 if [ -e /Users/drakemorin/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/drakemorin/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # cloudplatform: add Shopify clusters to your local kubernetes config
-export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/drakemorin/.kube/config:/Users/drakemorin/.kube/config.shopify.cloudplatform
-for file in /Users/drakemorin/src/github.com/Shopify/cloudplatform/workflow-utils/*.bash; do source ${file}; done
-kubectl-short-aliases
+# export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/drakemorin/.kube/config:/Users/drakemorin/.kube/config.shopify.cloudplatform
+# for file in /Users/drakemorin/src/github.com/Shopify/cloudplatform/workflow-utils/*.bash; do source ${file}; done
+# kubectl-short-aliases
+
+[[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
+
+[[ -x /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
