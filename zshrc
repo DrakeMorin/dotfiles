@@ -279,7 +279,7 @@ typeset -g POWERLEVEL9K_VCS_BACKENDS=(git)
 antigen bundle git
 antigen bundle gitignore
 antigen bundle command-not-found
-antigen bundle osx
+antigen bundle macos
 antigen bundle ruby
 antigen bundle rails
 # antigen bundle thefuck
