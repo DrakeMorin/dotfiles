@@ -1,0 +1,61 @@
+{
+  "gitlens.defaultDateStyle": "absolute",
+  "gitlens.defaultDateFormat": "YYYY/MM/DD",
+  // "gitlens.defaultDateFormat": "MMMM D, YYYY HH:mm",
+  "gitlens.defaultDateShortFormat": "YYYY/MM/DD",
+  "files.autoSave": "onFocusChange",
+  "c-cpp-flylint.flexelint.enable": false,
+  "C_Cpp.default.cStandard": "c99",
+  "C_Cpp.default.cppStandard": "c++14",
+  "C_Cpp.loggingLevel": "Warning",
+  "C_Cpp.updateChannel": "Insiders",
+  "terminal.external.osxExec": "/bin/zsh",
+  // "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+  // "editor.suggestSelection": "first",
+  "python.pythonPath": "/usr/local/bin/python3",
+  "python.languageServer": "Pylance",
+  "explorer.confirmDragAndDrop": false,
+  "terminal.integrated.sendKeybindingsToShell": true,
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "terminal.integrated.fontFamily": "\"MesloLGS NF\"",
+  "editor.fontSize": 14,
+  "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": "'ss02', 'ss03', 'ss05', 'ss08'",
+  "terminal.integrated.fontSize": 14,
+  "workbench.colorTheme": "IntelliJ-ish Darcula",
+  "ruby.useLanguageServer": true,
+  "ruby.format": "rubocop",
+  "ruby.lint": {
+    "rubocop": true
+  },
+  "[ruby]": {
+    "files.trimTrailingWhitespace": true,
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "rebornix.ruby"
+  },
+  "files.autoSaveDelay": 200,
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "explorer.openEditors.sortOrder": "alphabetical",
+  "explorer.autoReveal": false,
+  "editor.tabSize": 2,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "mssql.connections": [],
+}
