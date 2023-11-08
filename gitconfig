@@ -2,19 +2,7 @@
 	name = Drake Morin
 	email = drake.morin@shopify.com
 [core]
-	commitGraph = true
 	excludesfile = ~/.gitignore_global
-[diff]
-	algorithm = patience
-[gc]
-	writeCommitGraph = true
-[protocol]
-	version = 2
-[url "https://github.com/Shopify/"]
-	insteadOf = git@github.com:Shopify/
-	insteadOf = git@github.com:shopify/
-	insteadOf = ssh://git@github.com/Shopify/
-	insteadOf = ssh://git@github.com/shopify/
 [alias]
 	ci = commit
 	unstage = reset --
@@ -23,7 +11,12 @@
 	save = commit -a -m "Save"
 	update-submodules = submodule update --init --recursive
 	upgrade-submodules = submodule update --init --remote
+	ls = log --oneline
+	fixup = commit --amend --no-edit
+	squash = "!f() { git rebase -i HEAD~${1}; }; f"
 [pull]
 	ff = only
 [init]
 	defaultBranch = main
+[include]
+	path = /Users/drakemorin/.config/dev/gitconfig
